@@ -30,7 +30,6 @@
 
 #include <assert.h>
 #include <limits.h>
-
 #include "z85.h"
 
 typedef unsigned int  uint32_t;

@@ -1,12 +1,19 @@
 CFLAGS := -Wall -O2 -fomit-frame-pointer
 
-SRC := p3k3r.c crc32.c z85.c
+SRC := swp-encoder.c crc32.c z85.c
 OBJ := $(SRC:.c=.o)
 
-all: p3k3r
+all: swp-encoder
 
-p3k3r: $(OBJ) Makefile
+swp-encoder: $(OBJ) Makefile
 	$(CC) -o $@ $(OBJ)
 
 clean:
-	@rm -f $(OBJ) p3k3r
+	@rm -f $(OBJ) swp-encoder
+
+distclean: clean
+
+install:
+	install -m755 -D swp-encoder $(DESTDIR)/usr/bin/swp-encoder
+
+.PHONY: all install clean distclean swp-encoder
